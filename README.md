@@ -18,7 +18,7 @@
 - 📄 **Resume Management** - Upload and manage multiple resumes
 
 <div align="center">
-  <img src="https://i.imgur.com/vYL3Ygp.png" alt="Features Overview" width="80%"/>
+ 
 </div>
 
 ## 🛠️ Technologies Used
