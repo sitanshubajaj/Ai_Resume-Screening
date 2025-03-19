@@ -56,18 +56,20 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
   }
 
   return (
-    <Card className="w-full overflow-hidden bg-white/90 backdrop-blur-sm border-none shadow-xl">
+    <Card className="w-full overflow-hidden bg-gray-900/90 backdrop-blur-sm border border-gray-700 shadow-xl text-white">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
       <form onSubmit={handleSubmit}>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold">Job Requirements</CardTitle>
-          <CardDescription>Define the requirements for the position you're hiring for</CardDescription>
+          <CardDescription className="text-gray-400">
+            Define the requirements for the position you're hiring for
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <Briefcase className="h-5 w-5 text-indigo-500" />
-              <Label htmlFor="jobTitle" className="text-base">
+              <Briefcase className="h-5 w-5 text-indigo-400" />
+              <Label htmlFor="jobTitle" className="text-base text-gray-300">
                 Job Title
               </Label>
             </div>
@@ -77,12 +79,14 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
               value={jobTitle}
               onChange={(e) => setJobTitle(e.target.value)}
               required
-              className="border-indigo-100 focus-visible:ring-indigo-500"
+              className="border-gray-600 bg-gray-800 text-white focus-visible:ring-indigo-500"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="jobDescription">Job Description</Label>
+            <Label htmlFor="jobDescription" className="text-gray-300">
+              Job Description
+            </Label>
             <Textarea
               id="jobDescription"
               placeholder="Enter the full job description..."
@@ -90,14 +94,14 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
               value={jobDescription}
               onChange={(e) => setJobDescription(e.target.value)}
               required
-              className="border-indigo-100 focus-visible:ring-indigo-500"
+              className="border-gray-600 bg-gray-800 text-white focus-visible:ring-indigo-500"
             />
           </div>
 
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <ListChecks className="h-5 w-5 text-purple-500" />
-              <Label className="text-base">Required Skills</Label>
+              <ListChecks className="h-5 w-5 text-purple-400" />
+              <Label className="text-base text-gray-300">Required Skills</Label>
             </div>
             <div className="flex gap-2">
               <Input
@@ -110,7 +114,7 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
                     addSkill()
                   }
                 }}
-                className="border-purple-100 focus-visible:ring-purple-500"
+                className="border-gray-600 bg-gray-800 text-white focus-visible:ring-purple-500"
               />
               <Button
                 type="button"
@@ -122,7 +126,7 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
             </div>
 
             <div className="flex flex-wrap gap-2 mt-2">
-              {skills.map((skill, index) => (
+              {skills.map((skill) => (
                 <motion.div
                   key={skill}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -131,10 +135,10 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
                 >
                   <Badge
                     variant="secondary"
-                    className="flex items-center gap-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 hover:from-indigo-200 hover:to-purple-200 px-3 py-1"
+                    className="flex items-center gap-1 bg-gray-700 text-white px-3 py-1"
                   >
                     {skill}
-                    <X className="h-3 w-3 cursor-pointer text-indigo-700" onClick={() => removeSkill(skill)} />
+                    <X className="h-3 w-3 cursor-pointer text-red-400" onClick={() => removeSkill(skill)} />
                   </Badge>
                 </motion.div>
               ))}
@@ -144,8 +148,8 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
           <div className="space-y-2">
             <div className="flex justify-between">
               <div className="flex items-center gap-2">
-                <Briefcase className="h-5 w-5 text-pink-500" />
-                <Label htmlFor="experience" className="text-base">
+                <Briefcase className="h-5 w-5 text-pink-400" />
+                <Label htmlFor="experience" className="text-base text-gray-300">
                   Minimum Years of Experience: {experienceYears}
                 </Label>
               </div>
@@ -159,7 +163,7 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
               onValueChange={(value) => setExperienceYears(value[0])}
               className="py-4"
             />
-            <div className="flex justify-between text-xs text-muted-foreground">
+            <div className="flex justify-between text-xs text-gray-500">
               <span>Entry Level</span>
               <span>Mid Level</span>
               <span>Senior Level</span>
@@ -168,14 +172,14 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
 
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <GraduationCap className="h-5 w-5 text-indigo-500" />
-              <Label htmlFor="education" className="text-base">
+              <GraduationCap className="h-5 w-5 text-indigo-400" />
+              <Label htmlFor="education" className="text-base text-gray-300">
                 Minimum Education Level
               </Label>
             </div>
             <select
               id="education"
-              className="w-full p-2 border rounded-md border-indigo-100 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              className="w-full p-2 border rounded-md border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               value={educationLevel}
               onChange={(e) => setEducationLevel(e.target.value)}
             >
@@ -199,4 +203,3 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
     </Card>
   )
 }
-
