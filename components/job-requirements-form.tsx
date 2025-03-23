@@ -150,7 +150,7 @@ export function JobRequirementsForm({ onSubmit }: JobRequirementsFormProps) {
               <div className="flex items-center gap-2">
                 <Briefcase className="h-5 w-5 text-pink-400" />
                 <Label htmlFor="experience" className="text-base text-gray-300">
-                  Minimum Years of Experience: {experienceYears}
+                  Minimum Year of Experience: {experienceYears}
                 </Label>
               </div>
             </div>
